@@ -1,0 +1,4 @@
+langchain[mcp]==1.4.10
+langgraph==1.2.20
+langchain-openai==1.7.4
+fastmcp==4.1.8
