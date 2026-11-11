@@ -79,6 +79,24 @@ flowchart TD
 
 The diagram's LangGraph lane represents the orchestration code in `agent.py`, including initial tool discovery before the compiled graph runs. The LLM receives tool definitions and results; the server performs the actual log read.
 
+## Function calling vs. MCP
+
+With the OpenAI SDK, you can describe a custom function to the model. The model requests a call, your application executes the function, and your application sends the result back. For a single app, this can accomplish the same log-reading task as `read_payment_logs`. See [OpenAI function calling](https://developers.openai.com/api/docs/guides/function-calling).
+
+**MCP standardizes how tools and other capabilities are offered and discovered.** Different compatible clients can reuse the same server, reducing custom integration work for each app. Function calling and MCP can work together: in this demo, the model requests a tool call, while the adapter handles communication with the MCP server.
+
+OpenAI's Responses API also supports custom function tools and direct connections to remote MCP servers. This demo instead uses a local stdio server through LangChain. See [OpenAI MCP servers](https://developers.openai.com/api/docs/guides/tools-connectors-mcp).
+
+MCP servers can also offer capabilities beyond tools, depending on client support:
+
+| Capability | Mental model | Example |
+| --- | --- | --- |
+| Tools | Actions the model can request | Read payment logs. |
+| Resources | Reference material a client can read | Documents or data. |
+| Prompts | Prepared instructions a user can select and fill in | A reusable investigation template. |
+
+This demo exposes one **tool**; it does not define resources or prompts.
+
 ## References
 
 - [LangGraph: nodes, edges, and shared state](https://docs.langchain.com/oss/python/langgraph/thinking-in-graph-api)
