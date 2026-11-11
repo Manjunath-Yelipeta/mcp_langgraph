@@ -84,4 +84,4 @@ The diagram's LangGraph lane represents the orchestration code in `agent.py`, in
 - [LangGraph: nodes, edges, and shared state](https://docs.langchain.com/oss/python/langgraph/thinking-in-graph-api)
 - [LangChain MCP integration and MCPAdapter](https://www.langchain.com/blog/mcp-in-langchain-stateless-protocol-elicitation-and-more)
 
-The repository name is `mcp_langfuse`; this version demonstrates MCP and LangGraph and has no Langfuse tracing configured yet.
+The repository name is `mcp_langgraph`.
